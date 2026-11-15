@@ -118,6 +118,7 @@ header nav a {
 /* Sections */
 section {
     padding: 10px;
+    border-bottom: 2px solid var(--secondary-color);
 }
 
 section h2 {
