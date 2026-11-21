@@ -87,3 +87,9 @@ footer {
     font-size: 0.85rem;
     color: #555;
 }
+
+.sociallinks,
+.socialmedia {
+    display: flex;
+    gap: 1rem;
+}
