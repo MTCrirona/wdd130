@@ -1,4 +1,4 @@
-/* WDD 130 - Week 03 Rafting Website */
+/* WDD 130 - Week 04 Rafting Website */
 /* Author: Crirona Chauke */
 
 :root {
@@ -28,7 +28,8 @@ body {
 header,
 main,
 footer {
-    width: 840px;
+    width: 100%;
+    max-width: 840px;
     margin: 0 auto;
 }
 
@@ -40,7 +41,6 @@ h2 {
 }
 
 /* General Spacing */
-nav,
 p,
 section,
 article {
@@ -48,26 +48,53 @@ article {
     padding: 8px;
 }
 
-/* Header */
+/* Header - CSS Grid */
 header {
-    padding-top: 15px;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    align-items: center;
+    gap: 20px;
+    padding: 15px;
+    background-color: var(--primary-color);
 }
 
 /* Logo */
 .logo {
     display: block;
-    width: 220px;
+    width: 120px;
     height: auto;
 }
 
-/* Navigation */
+/* Navigation - Flexbox */
+header nav {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 10px;
+}
+
 header nav ul {
-    padding-left: 20px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    list-style: none;
+    width: 100%;
+    padding: 0;
+    margin: 0;
 }
 
 header nav a {
-    color: #0645ad;
-    text-decoration: underline;
+    display: block;
+    color: var(--accent2-color);
+    text-decoration: none;
+    font-weight: bold;
+    padding: 12px;
+}
+
+header nav a:hover {
+    background-color: var(--secondary-color);
+    color: var(--accent1-color);
+    border-radius: 4px;
 }
 
 /* Hero */
@@ -91,9 +118,8 @@ header nav a {
     width: 100%;
     padding: 16px;
     text-align: center;
-    opacity: 0.85;
-    background-color: var(--accent1-color);
-    color: #fff;
+    background-color: rgb(38 70 83 / 90%);
+    color: var(--accent2-color);
 }
 
 /* Article Overlay */
@@ -117,26 +143,126 @@ header nav a {
 
 /* Sections */
 section {
-    padding: 10px;
+    padding: 20px;
     border-bottom: 2px solid var(--secondary-color);
 }
 
 section h2 {
-    margin-bottom: 10px;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
-/* Footer */
+/* History Section - CSS Grid */
+.history-content {
+    display: grid;
+    grid-template-columns: 1fr 180px 1fr;
+    align-items: center;
+    gap: 20px;
+}
+
+.history-content p {
+    margin: 0;
+    padding: 5px;
+    line-height: 1.5;
+}
+
+.history-content img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+/* Adventures Section - CSS Grid */
+.adventure-gallery {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+    align-items: start;
+}
+
+.adventure-gallery figure {
+    margin: 0;
+    text-align: center;
+}
+
+.adventure-gallery img {
+    width: 100%;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.adventure-gallery figcaption {
+    margin-top: 8px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+/* Footer - Flexbox */
 footer {
-    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: var(--primary-color);
+    color: var(--accent2-color);
+}
+
+footer p {
+    margin: 0;
+    padding: 0;
 }
 
 /* Social Media */
+.socialmedia {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 12px;
+}
+
 .socialmedia a {
+    display: block;
     text-decoration: none;
 }
 
 .socialmedia img {
-    width: 65px;
-    height: 65px;
-    margin: 5px;
+    display: block;
+    width: 30px;
+    height: 30px;
+}
+
+/* Responsive Layout */
+@media (max-width: 700px) {
+    header {
+        grid-template-columns: 1fr;
+        justify-items: center;
+    }
+
+    header nav ul {
+        flex-wrap: wrap;
+    }
+
+    .history-content {
+        grid-template-columns: 1fr;
+    }
+
+    .adventure-gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hero,
+    .hero > img {
+        min-height: 450px;
+    }
+
+    .hero > img {
+        height: 450px;
+    }
+
+    footer {
+        flex-direction: column;
+        gap: 15px;
+    }
 }
